@@ -14,7 +14,8 @@ jobs:
       run: echo "${{ secrets.DOCKER_PWD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --password-stdin
 
     - name: Build Docker image
-      run: docker build -t ${{ secrets.DOCKER_LOGIN }}/github-actions-lab5 .
+      run: docker build --no-cache -t ${{ secrets.DOCKER_LOGIN }}/github-actions-lab5 .
+
 
     - name: Push Docker image
       run: docker push ${{ secrets.DOCKER_LOGIN }}/github-actions-lab5
